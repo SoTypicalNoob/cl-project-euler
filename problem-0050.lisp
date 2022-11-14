@@ -4,18 +4,7 @@
 ;; The longest sum of consecutive primes below one-thousand that adds to a prime, contains 21 terms, and is equal to 953.
 ;; Which prime, below one-million, can be written as the sum of the most consecutive primes?
 
-(load "./my-math-funcs.lisp")
-
-(defun consecutive-primes (n &optional (x 2) (prime-list (list)))
-  (let ((sum-prime (apply '+ prime-list)))
-    (if (prime-p x)
-        (progn
-          (setf prime-list (push x prime-list))
-          (test))
-        (consecutive-primes n (+ x 1) prime-list))
-    (cond ((and (<= sum-prime n) (prime-p sum-prime))
-           (format t "~A~%" sum-prime))
-          (t (consecutive-primes n (+ x 1) prime-list)))))
+(load "/home/n00b/projects/project_euler/my-math-funcs.lisp")
 
 (defun consecutive-primes (n &optional (x 2) (prime-list (list)) (sum-prime 0))
   (if (<= sum-prime n)
@@ -32,10 +21,3 @@
     (if (prime-p sum-prime)
         sum-prime
         (find-sum-prime (cdr consecutive-primes)))))
-
-(defun find-sum-prime-reverse (consecutive-primes)
-  (let* ((reverse-primes (reverse consecutive-primes))
-         (sum-prime (apply '+ reverse-primes)))
-    (if (prime-p sum-prime)
-        sum-prime
-        (find-sum-prime (reverse (cdr reverse-primes))))))
