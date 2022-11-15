@@ -2,5 +2,8 @@
 ;; What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 ;;
 ;; This is just a template yet...
-(defun smallest-multiple (n)
-  (loop ))
+(defun smallest-multiple (range &optional (x 10))
+  (if (loop :for i :from 1 :to range
+            :always (integerp (/ x i)))
+      x
+      (smallest-multiple range (+ x 1))))
