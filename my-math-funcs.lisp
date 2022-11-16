@@ -10,3 +10,10 @@
                       (reverse
                        (coerce
                         (write-to-string n) 'list)))))
+
+(defun prime-factors (input-number &optional (prime-factor-list (list)) (cnt 2))
+  (if (integerp (/ input-number cnt))
+      (progn
+        (push cnt prime-factors)
+        (prime-factors (/ input-number cnt) prime-factor-list cnt))
+      (prime-factors input-number prime-factor-list (+ cnt 1))))
