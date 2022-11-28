@@ -1,3 +1,4 @@
+;;; Prime Predicate
 (defun prime-p (n)
   (if (member T (loop :for i :from 2 :to (isqrt n)
                       :collect (integerp (/ n i))))
