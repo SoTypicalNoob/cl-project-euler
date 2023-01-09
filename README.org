@@ -1,0 +1,11 @@
+#+title: README
+
+| Problem # | Common Lisp | C++ |
+|-----------+-------------+-----|
+|         1 | Yes         | -   |
+|         3 | Yes         | -   |
+|         4 | Yes         | -   |
+|         5 | Yes         | -   |
+|         7 | Yes         | -   |
+|        10 | Yes         | -   |
+|        50 | Yes         | -   |
