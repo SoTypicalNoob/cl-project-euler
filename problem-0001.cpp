@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int mult_3_5 (int range) {
+int mult_3_5 (int& range) {
     int sum = 0;
     for (int i = 1; i < range; i++) {
         if (((i % 3) == 0) || ((i % 5) == 0)) {
