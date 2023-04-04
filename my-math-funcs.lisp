@@ -20,3 +20,18 @@
             (prime-factors (/ input-number cnt) prime-factor-list cnt))
           (prime-factors input-number prime-factor-list (+ cnt 1)))
       prime-factor-list))
+
+(defun fib (n)
+  "Tail-recursive computation of the nth element of the Fibonacci sequence"
+  (check-type n (integer 0 *))
+  (labels ((fib-aux (n f1 f2)
+                    (if (zerop n) f1
+                      (fib-aux (1- n) f2 (+ f1 f2)))))
+          (fib-aux n 0 1)))
+
+(defun fibonacci (n)
+  "This is much slower than fib"
+  (check-type n (integer 0 *))
+  (if (< n 3)
+      1
+      (+ (fibonacci (- n 1)) (fibonacci (- n 2))) ) )

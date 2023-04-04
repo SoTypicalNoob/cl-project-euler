@@ -2,18 +2,12 @@
 ;; 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 ;; By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
+(load "my-math-funcs.lisp")
 
-(defun fib (n)
-  "Naive recursive computation of the nth element of the Fibonacci sequence"
-  (check-type n (integer 0 *))
-  (if (< n 2) n
-      (+ (fib (1- n)) (fib (- n 2)))))
-
-(defun calc-fib (x)
-  (if (<= (fib x) 100)
-      (calc-fib(+ x 1))
-    )
-  (format t "~a~%" (fib x))
-  )
-
-(calc-fib 1)
+(defun sum-even-fib (limit &optional (iter 1) (sum 0))
+  (let ((fib (fibonacci iter)))
+    (if (<= fib limit)
+        (if (evenp fib)
+            (sum-even-fib limit (1+ iter) (+ sum fib))
+            (sum-even-fib limit (1+ iter) sum))
+        sum)))
